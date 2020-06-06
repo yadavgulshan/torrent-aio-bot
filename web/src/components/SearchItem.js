@@ -7,7 +7,7 @@ function SearchItem({ result, site, api }) {
   const loadDetails = async () => {
     setLoading(true);
 
-    const res = await fetch(api + "/api/v1/details/" + site + "?query=" + result.link);
+    const res = await fetch(api + "api/v1/details/" + site + "?query=" + result.link);
     if (res.status !== 200) {
       setResponse({ error: true, errorMessage: "Cannot connect to site" });
     } else {
@@ -54,9 +54,9 @@ function SearchItem({ result, site, api }) {
             <a href={response.torrent.downloadLink} className="btn warning m-0 mt-1">
               Download
             </a>
-            <a onClick={copyToClipboard} className="btn primary m-0 ml-1 mt-1">
+            <button onClick={copyToClipboard} className="btn primary m-0 ml-1 mt-1">
               Copy link
-            </a>
+            </button>
           </div>
         )}
       </div>
